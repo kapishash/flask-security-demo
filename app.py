@@ -33,6 +33,8 @@ with app.app_context():
         
     db.session.commit()
 
+from application.routes import *
+
 if __name__ == "__main__":
     app.run()
 
