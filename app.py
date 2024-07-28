@@ -31,9 +31,16 @@ with app.app_context():
                                            roles = ['admin', 'instructor', 'student']
                                            )
         
+    if not app.security.datastore.find_user(email = "test2@user.com"):
+        app.security.datastore.create_user(email = "test2@user.com",
+                                           password = hash_password('12345'),
+                                           roles = ['student']
+                                           )
+        
     db.session.commit()
 
 from application.routes import *
+# from application.resources import *
 
 if __name__ == "__main__":
     app.run()
